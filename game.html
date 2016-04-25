@@ -1,0 +1,45 @@
+<html>
+<title>
+   twine
+</title>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+
+<link href="http://thomasf.github.io/solarized-css/solarized-dark.min.css" rel="stylesheet"></link>
+
+
+<style>
+div.hid1
+{
+  display: none
+}
+
+div.hid2
+{
+  display: none
+}
+</style>
+
+
+
+
+<body>
+  <div class='hid1'>
+    <h5>Chapter 1</h5>
+  </div>
+  <div class='hid2'>
+    <h3>The Living Room, or so they say</h3>
+    <p>-----------------------------------------</p>
+  </div>
+</body>
+
+<script>
+$(document).ready(function () {
+    $('div.hid1').delay('fast').fadeIn(2000);
+    $('div.hid2').delay(1500).fadeIn(2000);
+
+});
+
+</script>
+
+</html>
