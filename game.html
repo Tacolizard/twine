@@ -79,7 +79,7 @@ $(document).ready(function () {
 
     $('.entry').on('keyup', function(event) {
         if (event.keyCode === 13) {
-            window.location.replace('cmd/'+$(this).text());
+            window.location.replace('cmd?='+$(this).text());
         }
     });
 
