@@ -20,22 +20,55 @@ div.hid2
 }
 
 .entry {
-  border: 1px;
-
-
+  border: 1px solid white;
+  padding-top: 3px;
+  padding-right: 3px;
+  padding-bottom: 3px;
+  padding-left: 3px;
+  display: inline-flex;
+  transition: padding-right .5s;
+  min-width: 60px;
+  max-width: 500px;
+  max-height: 75px;
+  overflow: hidden;
 }
+
+.entry:focus {
+  border: 1px solid white;
+  padding-top: 3px;
+  padding-right: 500px;
+  padding-bottom: 3px;
+  padding-left: 3px;
+  transition: padding-right .5s;
+}
+
+div.unselect:hover {
+  -webkit-user-select: none; /* Chrome/Safari */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE10+ */
+  cursor: default;
+}
+
+div.txt:hover {
+  cursor: auto;
+}
+
+.entry br{
+    display: none
+}
+
 </style>
 
 
 <body>
+  <div class='unselect'>
   <div class='hid1'>
     <h5>Chapter 1</h5>
   </div>
   <div class='hid2'>
     <h3>The Living Room, or so they say</h3>
     <p>-----------------------------------------</p>
-
-  <div class='entry'><p>>>></p></div>
+  <div class='txt'><p>>>><span class='entry' contenteditable="true">Enter Text</span></p></div>
 </div>
 </body>
 
