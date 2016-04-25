@@ -68,7 +68,7 @@ div.txt:hover {
   <div class='hid2'>
     <h3>The Living Room, or so they say</h3>
     <p>-----------------------------------------</p>
-  <div class='txt'><p>>>><span class='entry' contenteditable="true">Enter Text</span></p></div>
+  <div class='txt'><p>>>><span class='entry' contenteditable="true">Type command, enter to send.</span></p></div>
 </div>
 </body>
 
@@ -76,6 +76,13 @@ div.txt:hover {
 $(document).ready(function () {
     $('div.hid1').delay('fast').fadeIn(2000);
     $('div.hid2').delay(1500).fadeIn(2000);
+
+    $('.entry').on('keyup', function(event) {
+        if (event.keyCode === 13) {
+            window.location.replace('cmd/'+$(this).text());
+        }
+    });
+
 
 });
 
