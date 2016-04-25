@@ -1,7 +1,8 @@
 from flask import Flask
 from flask import request
-from engine import io
+import engine
 
+#engine.io(cmd) sends cmd to engine
 
 app = Flask(__name__)
 
@@ -15,11 +16,9 @@ def game():
 
 @app.route("/cmd")
 def cmd():
-    try:
-        cmd = request.args.get('')
-        return cmd
-    except ValueError:
-        return 'Unknown command'
+    cmd = request.args.get('')
+    engine.io(cmd)
+    return 'debug'
 
 
 if __name__ == "__main__":
