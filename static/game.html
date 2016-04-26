@@ -9,8 +9,7 @@
 
 
 <style>
-div.hid1
-{
+div.hid1 {
   display: none
 }
 
@@ -19,8 +18,8 @@ div.hid2
   display: none
 }
 
-.entry {
-  border: 1px solid white;
+#entry {
+  border-bottom: 1px solid white;
   padding-top: 3px;
   padding-right: 3px;
   padding-bottom: 3px;
@@ -33,13 +32,15 @@ div.hid2
   overflow: hidden;
 }
 
-.entry:focus {
-  border: 1px solid white;
+#entry:focus {
+  border-bottom: 1px solid white;
   padding-top: 3px;
   padding-right: 500px;
   padding-bottom: 3px;
   padding-left: 3px;
+  outline: 0px solid transparent;
   transition: padding-right .5s;
+
 }
 
 div.unselect:hover {
@@ -53,9 +54,19 @@ div.txt:hover {
   cursor: auto;
 }
 
-.entry br{
+#entry br{
     display: none
 }
+
+#tail {
+    border: 1px solid white;
+    width: 870px;
+    height: 500px;
+    overflow: hidden;
+}
+
+::selection { background:#FF5E99; color:#fff; text-shadow: none; }
+
 
 </style>
 
@@ -68,7 +79,8 @@ div.txt:hover {
   <div class='hid2'>
     <h3>The Living Room, or so they say</h3>
     <p>-----------------------------------------</p>
-  <div class='txt'><p>>>><span class='entry' contenteditable="true">Type command, enter to send.</span></p></div>
+  <div id='tail'></div>
+  <div class='txt'><p>>>><span id='entry' contenteditable="true">Your wish is my command</span></p></div>
 </div>
 </body>
 
@@ -76,8 +88,7 @@ div.txt:hover {
 $(document).ready(function () {
     $('div.hid1').delay('fast').fadeIn(2000);
     $('div.hid2').delay(1500).fadeIn(2000);
-
-    $('.entry').on('keyup', function(event) {
+    $('span.entry').on('keyup', function(event) {
         if (event.keyCode === 13) {
             window.location.replace('cmd?='+$(this).text());
         }
